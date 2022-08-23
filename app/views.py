@@ -3,17 +3,17 @@ from django.db import transaction
 from rest_framework import viewsets
 from rest_framework import mixins
 
-from models import Endpoint
-from serializers import EndpointSerializer
+from app.models import Endpoint
+from app.serializers import EndpointSerializer
 
-from models import MLModel
-from serializers import MLModelSerializer
+from app.models import MLModel
+from app.serializers import MLModelSerializer
 
-from models import MLModelStatus
-from serializers import MLModelStatusSerializer
+from app.models import MLModelStatus
+from app.serializers import MLModelStatusSerializer
 
-from models import MLRequest
-from serializers import MLRequestSerializer
+from app.models import MLRequest
+from app.serializers import MLRequestSerializer
 
 
 class EndpointViewSet(

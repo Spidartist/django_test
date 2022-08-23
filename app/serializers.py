@@ -1,5 +1,8 @@
 from rest_framework import serializers
-from models import Endpoint, MLModel, MLModelStatus, MLRequest
+from app.models import Endpoint
+from app.models import MLModel
+from app.models import MLModelStatus
+from app.models import MLRequest
 
 
 # read_only_fields: các trường chỉ cho phép đọc
