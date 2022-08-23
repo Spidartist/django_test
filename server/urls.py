@@ -3,10 +3,10 @@ from django.urls import path
 from django.conf.urls import include
 from django.urls import re_path as url
 from rest_framework.routers import DefaultRouter
-from server.app.views import EndpointViewSet
-from server.app.views import MLModelViewSet
-from server.app.views import MLModelStatusViewSet
-from server.app.views import MLRequestViewSet
+from app.views import EndpointViewSet
+from app.views import MLModelViewSet
+from app.views import MLModelStatusViewSet
+from app.views import MLRequestViewSet
 
 
 router = DefaultRouter(trailing_slash=False)
