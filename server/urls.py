@@ -1,21 +1,22 @@
-"""server URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from django.urls import re_path as url
+from rest_framework.routers import DefaultRouter
+from server.app.views import EndpointViewSet
+from server.app.views import MLModelViewSet
+from server.app.views import MLModelStatusViewSet
+from server.app.views import MLRequestViewSet
+
+
+router = DefaultRouter(trailing_slash=False)
+router.register(r"endpoints", EndpointViewSet, basename="endpoints")
+router.register(r"mlmodels", MLModelViewSet, basename="mlmodels")
+router.register(r"mlmodelstatuses", MLModelStatusViewSet,
+                basename="mlmodelstatuses")
+router.register(r"mlrequests", MLRequestViewSet, basename="mlrequests")
 
 urlpatterns = [
+    url(r"^api/v1/", include(router.urls)),
     path('admin/', admin.site.urls),
 ]
